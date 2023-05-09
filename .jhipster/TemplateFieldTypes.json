@@ -1,0 +1,39 @@
+{
+  "applications": "*",
+  "changelogDate": "20230509092348",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "template_field_types",
+  "fields": [
+    {
+      "fieldName": "type",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique", "maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    },
+    {
+      "fieldName": "isList",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "attachments",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "TemplateFieldTypes",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "templateFields",
+      "otherEntityRelationshipName": "templateFieldType",
+      "relationshipName": "templatefieldsTemplatefieldtype",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

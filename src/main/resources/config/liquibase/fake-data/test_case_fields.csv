@@ -1,0 +1,11 @@
+id;expected_result;value;template_field_id;test_case_id
+1;../fake-data/blob/hipster.txt;Agent;1;1
+2;../fake-data/blob/hipster.txt;orchestration;2;2
+3;../fake-data/blob/hipster.txt;Account;3;3
+4;../fake-data/blob/hipster.txt;index;4;4
+5;../fake-data/blob/hipster.txt;Koruna;5;5
+6;../fake-data/blob/hipster.txt;users Persevering;6;6
+7;../fake-data/blob/hipster.txt;Practical application Specialist;7;7
+8;../fake-data/blob/hipster.txt;parse;8;8
+9;../fake-data/blob/hipster.txt;Loaf;9;9
+10;../fake-data/blob/hipster.txt;Dollar;10;10

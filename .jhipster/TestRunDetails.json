@@ -1,0 +1,67 @@
+{
+  "applications": "*",
+  "changelogDate": "20230509092359",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "test_run_details",
+  "fields": [
+    {
+      "fieldName": "resultDetail",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    },
+    {
+      "fieldName": "jiraId",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "executedBy",
+      "fieldType": "Integer"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "TestRunDetails",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "testRuns",
+      "otherEntityRelationshipName": "testrundetailsTestrun",
+      "relationshipName": "testRun",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "testCases",
+      "otherEntityRelationshipName": "testrundetailsTestcase",
+      "relationshipName": "testCase",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "testStatuses",
+      "otherEntityRelationshipName": "testrundetailsStatus",
+      "relationshipName": "status",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "testRunDetailAttachments",
+      "otherEntityRelationshipName": "testRunDetail",
+      "relationshipName": "testrundetailattachmentsTestrundetail",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "testRunStepDetails",
+      "otherEntityRelationshipName": "testRunDetail",
+      "relationshipName": "testrunstepdetailsTestrundetail",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

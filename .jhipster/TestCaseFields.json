@@ -1,0 +1,54 @@
+{
+  "applications": "*",
+  "changelogDate": "20230509092353",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "test_case_fields",
+  "fields": [
+    {
+      "fieldName": "expectedResult",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "value",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "TestCaseFields",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "templateFields",
+      "otherEntityRelationshipName": "testcasefieldsTemplatefield",
+      "relationshipName": "templateField",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityName": "testCases",
+      "otherEntityRelationshipName": "testcasefieldsTestcase",
+      "relationshipName": "testCase",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityName": "testCaseFieldAttachments",
+      "otherEntityRelationshipName": "testCaseField",
+      "relationshipName": "testcasefieldattachmentsTestcasefield",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "testRunStepDetails",
+      "otherEntityRelationshipName": "stepDetail",
+      "relationshipName": "testrunstepdetailsStepdetail",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

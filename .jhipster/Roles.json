@@ -1,0 +1,41 @@
+{
+  "applications": "*",
+  "changelogDate": "20230509092346",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "roles",
+  "fields": [
+    {
+      "fieldName": "roleName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique", "maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    },
+    {
+      "fieldName": "isdefault",
+      "fieldType": "Boolean"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Roles",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "permissions",
+      "otherEntityRelationshipName": "role",
+      "ownerSide": true,
+      "relationshipName": "permission",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "users",
+      "otherEntityRelationshipName": "role",
+      "ownerSide": true,
+      "relationshipName": "user",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

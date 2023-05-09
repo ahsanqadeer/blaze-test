@@ -11,7 +11,49 @@
     <property name="datetimeType" value="datetime(6)" dbms="mysql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092342_added_entity_Companies.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092343_added_entity_Milestones.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092344_added_entity_Permissions.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092345_added_entity_Projects.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092346_added_entity_Roles.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092347_added_entity_Sections.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092348_added_entity_TemplateFieldTypes.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092349_added_entity_TemplateFields.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092350_added_entity_Templates.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092351_added_entity_TestCaseAttachments.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092352_added_entity_TestCaseFieldAttachments.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092353_added_entity_TestCaseFields.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092354_added_entity_TestCasePriorities.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092355_added_entity_TestCases.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092356_added_entity_TestLevels.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092357_added_entity_TestPlans.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092358_added_entity_TestRunDetailAttachments.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092359_added_entity_TestRunDetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092400_added_entity_TestRunStepDetailAttachments.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092401_added_entity_TestRunStepDetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092402_added_entity_TestRuns.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092403_added_entity_TestStatuses.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092404_added_entity_TestSuites.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092405_added_entity_Users.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20230509092343_added_entity_constraints_Milestones.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092345_added_entity_constraints_Projects.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092346_added_entity_constraints_Roles.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092347_added_entity_constraints_Sections.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092349_added_entity_constraints_TemplateFields.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092350_added_entity_constraints_Templates.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092351_added_entity_constraints_TestCaseAttachments.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092352_added_entity_constraints_TestCaseFieldAttachments.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092353_added_entity_constraints_TestCaseFields.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092355_added_entity_constraints_TestCases.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092357_added_entity_constraints_TestPlans.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092358_added_entity_constraints_TestRunDetailAttachments.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092359_added_entity_constraints_TestRunDetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092400_added_entity_constraints_TestRunStepDetailAttachments.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092401_added_entity_constraints_TestRunStepDetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092402_added_entity_constraints_TestRuns.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092404_added_entity_constraints_TestSuites.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230509092405_added_entity_constraints_Users.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>
