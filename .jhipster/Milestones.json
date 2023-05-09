@@ -1,0 +1,75 @@
+{
+  "applications": "*",
+  "changelogDate": "20230509092343",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "milestones",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "reference",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "startDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "isCompleted",
+      "fieldType": "Boolean"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Milestones",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "milestones",
+      "otherEntityRelationshipName": "milestonesParentmilestone",
+      "relationshipName": "parentMilestone",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "projects",
+      "otherEntityRelationshipName": "milestonesProject",
+      "relationshipName": "project",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "milestones",
+      "otherEntityRelationshipName": "parentMilestone",
+      "relationshipName": "milestonesParentmilestone",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "testCases",
+      "otherEntityRelationshipName": "milestone",
+      "relationshipName": "testcasesMilestone",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "testRuns",
+      "otherEntityRelationshipName": "mileStone",
+      "relationshipName": "testrunsMilestone",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

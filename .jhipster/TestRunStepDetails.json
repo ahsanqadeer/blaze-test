@@ -1,0 +1,46 @@
+{
+  "applications": "*",
+  "changelogDate": "20230509092401",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "test_run_step_details",
+  "fields": [
+    {
+      "fieldName": "actualResult",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "TestRunStepDetails",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "testRunDetails",
+      "otherEntityRelationshipName": "testrunstepdetailsTestrundetail",
+      "relationshipName": "testRunDetail",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "testCaseFields",
+      "otherEntityRelationshipName": "testrunstepdetailsStepdetail",
+      "relationshipName": "stepDetail",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "testStatuses",
+      "otherEntityRelationshipName": "testrunstepdetailsStatus",
+      "relationshipName": "status",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "testRunStepDetailAttachments",
+      "otherEntityRelationshipName": "testRunStepDetail",
+      "relationshipName": "testrunstepdetailattachmentsTestrunstepdetail",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

@@ -1,0 +1,68 @@
+{
+  "applications": "*",
+  "changelogDate": "20230509092347",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "sections",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "updatedAt",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Integer"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Sections",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "testSuites",
+      "otherEntityRelationshipName": "sectionsTestsuite",
+      "relationshipName": "testSuite",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "sections",
+      "otherEntityRelationshipName": "sectionsParentsection",
+      "relationshipName": "parentSection",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "sections",
+      "otherEntityRelationshipName": "parentSection",
+      "relationshipName": "sectionsParentsection",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "testCases",
+      "otherEntityRelationshipName": "section",
+      "relationshipName": "testcasesSection",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

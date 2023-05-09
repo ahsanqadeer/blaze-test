@@ -1,0 +1,51 @@
+{
+  "applications": "*",
+  "changelogDate": "20230509092349",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "template_fields",
+  "fields": [
+    {
+      "fieldName": "fieldName",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "TemplateFields",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "companies",
+      "otherEntityRelationshipName": "templatefieldsCompany",
+      "relationshipName": "company",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityField": "type",
+      "otherEntityName": "templateFieldTypes",
+      "otherEntityRelationshipName": "templatefieldsTemplatefieldtype",
+      "relationshipName": "templateFieldType",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityName": "testCaseFields",
+      "otherEntityRelationshipName": "templateField",
+      "relationshipName": "testcasefieldsTemplatefield",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "templates",
+      "otherEntityRelationshipName": "templateField",
+      "ownerSide": false,
+      "relationshipName": "template",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}
