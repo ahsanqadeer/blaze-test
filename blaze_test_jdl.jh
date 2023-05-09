@@ -1,0 +1,314 @@
+// No enums were found
+
+entity Companies(companies) {
+    country String maxlength(255),
+    url String maxlength(255),
+    name String maxlength(255),
+    expectedNoOfUsers Integer,
+    createdBy Integer required,
+    createdAt Instant required,
+    updatedBy Integer,
+    updatedAt Instant
+}
+
+entity Milestones(milestones) {
+    name String maxlength(255),
+    description TextBlob,
+    reference TextBlob,
+    startDate Instant,
+    endDate Instant,
+    isCompleted Boolean
+}
+
+entity Permissions(permissions) {
+    permissionName String required unique maxlength(255)
+}
+
+entity Projects(projects) {
+    projectName String required unique maxlength(255),
+    description TextBlob,
+    isactive Boolean,
+    createdBy Integer,
+    createdAt Instant,
+    updatedBy Integer,
+    updatedAt Instant
+}
+
+entity Roles(roles) {
+    roleName String required unique maxlength(255),
+    isdefault Boolean
+}
+
+entity Sections(sections) {
+    name String maxlength(255),
+    description TextBlob,
+    createdAt Instant,
+    createdBy Integer,
+    updatedAt Instant,
+    updatedBy Integer
+}
+
+entity TemplateFieldTypes(template_field_types) {
+    type String required unique maxlength(255),
+    isList Boolean required,
+    attachments Boolean required
+}
+
+entity TemplateFields(template_fields) {
+    fieldName String maxlength(255)
+}
+
+entity Templates(templates) {
+    templateName String maxlength(255),
+    createdAt Instant,
+    createdBy Integer
+}
+
+entity TestCaseAttachments(test_case_attachments) {
+    url TextBlob required
+}
+
+entity TestCaseFieldAttachments(test_case_field_attachments) {
+    url TextBlob required
+}
+
+entity TestCaseFields(test_case_fields) {
+    expectedResult TextBlob,
+    value String maxlength(255)
+}
+
+entity TestCasePriorities(test_case_priorities) {
+    name String required unique maxlength(255)
+}
+
+entity TestCases(test_cases) {
+    title String maxlength(255),
+    estimate String maxlength(255),
+    createdBy Integer,
+    createdAt Instant,
+    updatedBy Integer,
+    updatedAt Instant,
+    precondition String maxlength(255),
+    description TextBlob,
+    isAutomated Boolean
+}
+
+entity TestLevels(test_levels) {
+    name String maxlength(255)
+}
+
+entity TestPlans(test_plans) {
+    name String maxlength(255),
+    description TextBlob,
+    createdBy Integer,
+    createdAt Instant
+}
+
+entity TestRunDetailAttachments(test_run_detail_attachments) {
+    url TextBlob required
+}
+
+entity TestRunDetails(test_run_details) {
+    resultDetail String maxlength(255),
+    jiraId String maxlength(255),
+    createdBy Integer,
+    executedBy Integer
+}
+
+entity TestRunStepDetailAttachments(test_run_step_detail_attachments) {
+    url TextBlob required
+}
+
+entity TestRunStepDetails(test_run_step_details) {
+    actualResult TextBlob
+}
+
+entity TestRuns(test_runs) {
+    name String maxlength(255),
+    description String maxlength(255),
+    createdAt Instant,
+    createdBy Integer
+}
+
+entity TestStatuses(test_statuses) {
+    statusName String maxlength(255)
+}
+
+entity TestSuites(test_suites) {
+    testSuiteName String maxlength(255),
+    description TextBlob,
+    createdBy Integer,
+    createdAt Instant,
+    updatedBy Integer,
+    updatedAt Instant
+}
+
+entity Users(users) {
+    firstName String maxlength(255),
+    lastName String maxlength(255),
+    password String maxlength(255),
+    lastActive Instant,
+    status String maxlength(255),
+    createdBy Integer,
+    createdAt Instant,
+    updatedBy Integer,
+    updatedAt Instant,
+    email String unique maxlength(255),
+    isDeleted Boolean required,
+    emailVerified Boolean required,
+    provider String required maxlength(100),
+    emailVerificationToken TextBlob,
+    forgotPasswordToken TextBlob
+}
+
+// Relations
+relationship ManyToOne {
+    Milestones{parentMilestone} to Milestones{milestonesParentmilestone}
+}
+
+relationship ManyToOne {
+    Milestones{project} to Projects{milestonesProject}
+}
+
+relationship ManyToOne {
+    Projects{defaultTemplate} to Templates{projectsDefaulttemplate}
+}
+
+relationship ManyToOne {
+    Projects{company} to Companies{projectsCompany}
+}
+
+relationship ManyToMany {
+    Users{project} to Projects{user}
+}
+
+relationship ManyToMany {
+    Roles{permission} to Permissions{role}
+}
+
+relationship ManyToOne {
+    Sections{testSuite} to TestSuites{sectionsTestsuite}
+}
+
+relationship ManyToOne {
+    Sections{parentSection} to Sections{sectionsParentsection}
+}
+
+relationship ManyToOne {
+    TemplateFields{company required} to Companies{templatefieldsCompany}
+}
+
+relationship ManyToOne {
+    TemplateFields{templateFieldType(type) required} to TemplateFieldTypes{templatefieldsTemplatefieldtype}
+}
+
+relationship ManyToOne {
+    Templates{company required} to Companies{templatesCompany}
+}
+
+relationship ManyToMany {
+    Templates{templateField} to TemplateFields{template}
+}
+
+relationship ManyToOne {
+    TestCaseAttachments{testCase required} to TestCases{testcaseattachmentsTestcase}
+}
+
+relationship ManyToOne {
+    TestCaseFieldAttachments{testCaseField required} to TestCaseFields{testcasefieldattachmentsTestcasefield}
+}
+
+relationship ManyToOne {
+    TestCaseFields{templateField required} to TemplateFields{testcasefieldsTemplatefield}
+}
+
+relationship ManyToOne {
+    TestCaseFields{testCase required} to TestCases{testcasefieldsTestcase}
+}
+
+relationship ManyToMany {
+    TestCases{testLevel} to TestLevels{testCase}
+}
+
+relationship ManyToOne {
+    TestCases{testSuite} to TestSuites{testcasesTestsuite}
+}
+
+relationship ManyToOne {
+    TestCases{section} to Sections{testcasesSection}
+}
+
+relationship ManyToOne {
+    TestCases{priority(name) required} to TestCasePriorities{testcasesPriority}
+}
+
+relationship ManyToOne {
+    TestCases{template} to Templates{testcasesTemplate}
+}
+
+relationship ManyToOne {
+    TestCases{milestone} to Milestones{testcasesMilestone}
+}
+
+relationship ManyToOne {
+    TestPlans{project} to Projects{testplansProject}
+}
+
+relationship ManyToOne {
+    TestRunDetailAttachments{testRunDetail required} to TestRunDetails{testrundetailattachmentsTestrundetail}
+}
+
+relationship ManyToOne {
+    TestRunDetails{testRun} to TestRuns{testrundetailsTestrun}
+}
+
+relationship ManyToOne {
+    TestRunDetails{testCase} to TestCases{testrundetailsTestcase}
+}
+
+relationship ManyToOne {
+    TestRunDetails{status} to TestStatuses{testrundetailsStatus}
+}
+
+relationship ManyToOne {
+    TestRunStepDetailAttachments{testRunStepDetail required} to TestRunStepDetails{testrunstepdetailattachmentsTestrunstepdetail}
+}
+
+relationship ManyToOne {
+    TestRunStepDetails{testRunDetail} to TestRunDetails{testrunstepdetailsTestrundetail}
+}
+
+relationship ManyToOne {
+    TestRunStepDetails{stepDetail} to TestCaseFields{testrunstepdetailsStepdetail}
+}
+
+relationship ManyToOne {
+    TestRunStepDetails{status} to TestStatuses{testrunstepdetailsStatus}
+}
+
+relationship ManyToOne {
+    TestRuns{testLevel} to TestLevels{testrunsTestlevel}
+}
+
+relationship ManyToOne {
+    TestRuns{mileStone} to Milestones{testrunsMilestone}
+}
+
+relationship ManyToOne {
+    TestSuites{project} to Projects{testsuitesProject}
+}
+
+relationship ManyToOne {
+    Users{company} to Companies{usersCompany(email)}
+}
+
+relationship ManyToMany {
+    Roles{user} to Users{role}
+}
+
+// Options
+service * with serviceClass
+
+paginate * with pagination
+
+filter *
